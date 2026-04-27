@@ -46,7 +46,7 @@ if (heroBall) {
   heroBall.addEventListener('animationend', () => {
     setTimeout(() => {
       heroBall.style.animation = 'none';
-      heroBall.offsetHeight; // reflow
+      heroBall.offsetHeight;
       heroBall.style.animation = 'ballShoot 2.5s ease-out forwards';
     }, 4000);
   });
@@ -81,74 +81,3 @@ document.querySelectorAll('.amenity-item').forEach((item, index) => {
 document.querySelectorAll('.comp-card').forEach((card, index) => {
   card.style.transitionDelay = `${index * 0.1}s`;
 });
-
-/* ===========================
-   FIND US
-=========================== */
-.findus {
-  padding: 6rem 0 0;
-  background-color: var(--dark);
-}
-
-.findus h2 {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-
-.findus-address {
-  color: var(--gray);
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.findus-map {
-  width: 100%;
-  height: 500px;
-}
-
-/* ===========================
-   FOOTER NUEVO
-=========================== */
-.footer {
-  background-color: var(--black);
-  padding: 4rem 0 2rem;
-}
-
-.footer-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1rem;
-}
-
-.footer-logo-img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-.footer-slogan {
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--green);
-  font-weight: 300;
-  letter-spacing: 0.1em;
-}
-
-.footer-address {
-  font-size: 0.85rem;
-  color: var(--gray);
-}
-
-.footer-copy {
-  font-size: 0.75rem;
-  color: #444;
-  margin-top: 1rem;
-  border-top: 1px solid #222;
-  padding-top: 1.5rem;
-  width: 100%;
-}
