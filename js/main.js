@@ -11,13 +11,42 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// ===========================
+// MOBILE NAV TOGGLE
+// ===========================
+if (navbar) {
+  const navContainer = navbar.querySelector('.nav-container');
+  const navLinks = navbar.querySelector('.nav-links');
+
+  if (navContainer && navLinks && !navbar.querySelector('.nav-toggle')) {
+    const navToggle = document.createElement('button');
+    navToggle.className = 'nav-toggle';
+    navToggle.type = 'button';
+    navToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.innerHTML = '&#9776;';
+
+    navContainer.insertBefore(navToggle, navLinks);
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+}
+
 
 // ===========================
 // FADE IN — sections on scroll
 // ===========================
-const fadeElements = document.querySelectorAll(
-  '.about-grid, .court-card, .amenity-item, .comp-card, .level-card, .type-card, .coach-card, .courts h2, .about-text h2, .competitions h2, .academy h2'
-);
+const fadeElements = document.querySelectorAll('section');
 
 fadeElements.forEach(el => {
   el.classList.add('fade-in');
