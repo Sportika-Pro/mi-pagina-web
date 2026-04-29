@@ -110,3 +110,34 @@ document.querySelectorAll('.amenity-item').forEach((item, index) => {
 document.querySelectorAll('.comp-card').forEach((card, index) => {
   card.style.transitionDelay = `${index * 0.1}s`;
 });
+
+// ===========================
+// FOUNDERS OPEN COUNTDOWN
+// ===========================
+const foundersCountdown = document.getElementById('foundersCountdown');
+
+if (foundersCountdown) {
+  const endDate = new Date('2025-06-04T00:00:00');
+  const daysEl = foundersCountdown.querySelector('[data-time="days"]');
+  const hoursEl = foundersCountdown.querySelector('[data-time="hours"]');
+  const minutesEl = foundersCountdown.querySelector('[data-time="minutes"]');
+  const secondsEl = foundersCountdown.querySelector('[data-time="seconds"]');
+
+  const updateCountdown = () => {
+    const now = new Date();
+    const distance = Math.max(endDate - now, 0);
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}

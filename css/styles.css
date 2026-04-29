@@ -556,66 +556,144 @@ a {
 
 .comp-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   margin-top: 1rem;
 }
 
 .comp-card {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  min-height: 480px;
   background-color: var(--dark3);
-  border-left: 3px solid var(--green);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid var(--green);
+  box-shadow: 0 14px 32px rgba(200, 212, 0, 0.14);
+  transition: box-shadow 0.35s ease;
 }
 
 .comp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 18px 40px rgba(200, 212, 0, 0.2);
 }
 
-.comp-card img {
-  height: 220px;
-  object-fit: cover;
-  filter: contrast(1.05);
-  transition: transform 0.4s ease;
+.comp-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.5s ease;
 }
 
-.comp-card:hover img {
-  transform: scale(1.05);
+.comp-card:hover .comp-bg {
+  transform: scale(1.03);
+}
+
+.comp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 100%);
 }
 
 .comp-badge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  display: inline-block;
   background-color: var(--green);
   color: var(--black);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  padding: 0.3rem 0.7rem;
-  z-index: 2;
+  text-transform: uppercase;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
 }
 
 .comp-info {
-  padding: 1.5rem;
+  position: relative;
+  z-index: 2;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 3.2rem;
+  max-width: 760px;
 }
 
 .comp-info h3 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.02;
+  margin-bottom: 0.8rem;
+  color: var(--white);
+}
+
+.comp-subtitle {
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-style: italic;
+  margin-bottom: 1.5rem;
 }
 
-.comp-info p {
-  font-size: 0.85rem;
-  color: var(--gray);
-  margin-bottom: 0.75rem;
+.comp-meta {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.6rem;
 }
 
-.comp-level {
-  font-size: 0.75rem;
+.comp-divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--green);
+  margin: 1rem 0 1.3rem;
+}
+
+.comp-cta {
+  display: inline-block;
+  background-color: var(--green);
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.95rem 1.9rem;
+  border-radius: 10px;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.comp-cta:hover {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+.comp-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 110px));
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.time-box {
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(200, 212, 0, 0.6);
+  border-radius: 8px;
+  padding: 0.8rem 0.6rem;
+  text-align: center;
+}
+
+.time-value {
+  display: block;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--white);
+}
+
+.time-label {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -900,6 +978,14 @@ section h2 {
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .courts-grid { grid-template-columns: 1fr; }
   .comp-grid { grid-template-columns: 1fr; }
+  .comp-info {
+    padding: 2.2rem 1.4rem;
+  }
+  .comp-countdown {
+    grid-template-columns: repeat(2, minmax(90px, 1fr));
+    width: 100%;
+    max-width: 280px;
+  }
   .academy-levels { grid-template-columns: 1fr; }
   .academy-types { grid-template-columns: 1fr; }
   .coaches-grid { grid-template-columns: 1fr; }
