@@ -155,7 +155,9 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 2rem;
+  padding: 10px 32px;
+  height: auto;
+  max-height: 70px;
   background-color: rgba(10, 10, 10, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -164,7 +166,7 @@ a {
 
 .navbar.scrolled {
   background-color: rgba(0, 0, 0, 0.75);
-  padding: 1rem 2rem;
+  padding: 10px 32px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -183,7 +185,8 @@ a {
   color: var(--white);
 }
 .nav-logo-img {
-  height: 90px;
+  height: auto;
+  max-height: 52px;
   width: auto;
   object-fit: contain;
 }
@@ -240,6 +243,7 @@ a {
   position: relative;
   height: 100vh;
   min-height: 700px;
+  padding-top: 70px;
   background-image: url('https://images.pexels.com/photos/36246828/pexels-photo-36246828.jpeg?auto=compress&cs=tinysrgb&w=1920');
   background-size: cover;
   background-position: center;
@@ -691,6 +695,13 @@ a {
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
   color: var(--green);
+}
+
+.level-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1;
 }
 
 .level-card p {
