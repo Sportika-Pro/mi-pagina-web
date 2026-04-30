@@ -82,6 +82,30 @@ a {
   opacity: 0.85;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.nav-instagram-btn {
+  color: white;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-instagram-btn:hover {
+  border-color: #c8f135;
+  color: #c8f135;
+}
+
 .btn-hero {
   display: inline-block;
   background-color: var(--green);
@@ -839,6 +863,10 @@ a {
 
 .social-links a svg {
   transition: transform 0.2s ease;
+}
+
+.social-links a[aria-label="Instagram"]:hover svg {
+  transform: scale(1.15);
 }
 
 .footer-map iframe {
